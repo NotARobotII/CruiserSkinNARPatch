@@ -6,7 +6,6 @@ using UnityEngine;
 namespace CruiserSkinNARPatch
 {
     [BepInPlugin(MyPluginInfo.PLUGIN_GUID, MyPluginInfo.PLUGIN_NAME, MyPluginInfo.PLUGIN_VERSION)]
-    //[BepInDependency("BMX.LobbyCompatibility", BepInDependency.DependencyFlags.HardDependency)]
     [BepInDependency("EffMapis.CruiserSkin", BepInDependency.DependencyFlags.HardDependency)]
     public class CruiserSkinNARPatch : BaseUnityPlugin
     {
@@ -18,10 +17,8 @@ namespace CruiserSkinNARPatch
         {
             Logger = base.Logger;
             Instance = this;
-            Logger.LogInfo($"{MyPluginInfo.PLUGIN_GUID} v{MyPluginInfo.PLUGIN_VERSION} has loaded! Hello hello");
             Patch();
-
-            Logger.LogInfo($"{MyPluginInfo.PLUGIN_GUID} v{MyPluginInfo.PLUGIN_VERSION} has loaded! Hello hello");
+            Logger.LogInfo($"{MyPluginInfo.PLUGIN_GUID} v{MyPluginInfo.PLUGIN_VERSION} has loaded!");
         }
 
         internal static void Patch()
@@ -47,7 +44,7 @@ namespace CruiserSkinNARPatch
 namespace CruiserSkinNARPatch.Patches
 {
     [HarmonyPatch(typeof(VehicleController))]
-    public class TheWheels
+    public class Patching
     {
         private static Texture2D main;
         private static Texture2D destroyed;
